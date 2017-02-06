@@ -11,8 +11,11 @@ public class FizzBuzzTest
 	@Test
 	public void test(){
 		// arrange
+		FizzBuzz fizz = new FizzBuzz();
+
 
 		// act
+
 
 		// assert
 	}
