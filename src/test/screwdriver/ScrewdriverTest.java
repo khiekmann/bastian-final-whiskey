@@ -20,8 +20,10 @@ public class ScrewdriverTest
 	private static int secondParameterValue;
 	private static Object[] parameterValues;
 	int expectedResult = 3;
-	Object reflectionResult;
+	private Object reflectionResult;
 	private String privateMethodName;
+	private Object object;
+	private Screwdriver screwdriver;
 
 	@Before
 	public void before() {
@@ -32,15 +34,16 @@ public class ScrewdriverTest
 		firstParameterValue = 1;
 		secondParameterValue = 2;
 		parameterValues = new Object[] {firstParameterValue, secondParameterValue};
+		object = new CatchMeIfYouCanClass();
+		screwdriver = new Screwdriver();
 	}
 
 	@Test
 	public void testScrewdriverCallingAPrivateMethod() throws Exception {
 		// arrange
-		Screwdriver screwdriver = new Screwdriver();
 
 		// act
-		reflectionResult = screwdriver.accessPublicStaticMethod(clazz, privateMethodName, parameterClasses, parameterValues);
+		reflectionResult = screwdriver.accessPrivateMethod(object, privateMethodName, parameterClasses, parameterValues);
 
 		// assert
 		assertEquals(expectedResult, reflectionResult);
@@ -49,7 +52,6 @@ public class ScrewdriverTest
 	@Test
 	public void testScrewdriverCallingAPublicStaticMethod() throws Exception {
 		// arrange
-		Screwdriver screwdriver = new Screwdriver();
 
 		// act
 		reflectionResult = screwdriver.accessPublicStaticMethod(clazz, publicStaticMethodName, parameterClasses, parameterValues);

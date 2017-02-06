@@ -13,4 +13,10 @@ public class Screwdriver
 		Method publicStaticMethod = clazz.getMethod(publicStaticMethodName, parameterClasses);
 		return publicStaticMethod.invoke(clazz, parameterValues);
 	}
+
+	public Object accessPrivateMethod(Object object, String privateMethodName, Class[] parameterClasses, Object[] parameterValues) throws Exception {
+		Method privateMethod = object.getClass().getDeclaredMethod(privateMethodName, parameterClasses);
+		privateMethod.setAccessible(true);
+		return privateMethod.invoke(object, parameterValues);
+	}
 }
