@@ -5,5 +5,9 @@ package fizzbuzz;
  */
 public class FizzBuzz
 {
-	
+
+	public long reactTo(long number)
+	{
+		return 0;
+	}
 }
