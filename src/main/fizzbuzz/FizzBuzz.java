@@ -8,9 +8,9 @@ public class FizzBuzz
 
 	public long reactTo(long number) throws Exception
 	{
-		if (moduloEqualsZero(3 * 5, number)) { throw new FizzBuzzException();}
-		if (moduloEqualsZero(5, number)) {throw new BuzzException();}
-		if (moduloEqualsZero(3, number)) { throw new FizzException();}
+		if (moduloEqualsZero(3 * 5, number)) { throw new Exception("FizzBuzz");}
+		if (moduloEqualsZero(5, number)) {throw new Exception("Buzz");}
+		if (moduloEqualsZero(3, number)) { throw new Exception("Fizz");}
 		return number;
 	}
 

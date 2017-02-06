@@ -12,7 +12,7 @@ import static junit.framework.TestCase.assertEquals;
 public class FizzBuzzTest
 {
 	private FizzBuzz fizz;
-	private long result;
+	private Object result;
 	private long number;
 
 	@Before
@@ -22,41 +22,65 @@ public class FizzBuzzTest
 		number = -1L;
 	}
 
-	@Test (expected = FizzBuzzException.class)
-	public void testReactionOnFifteenExpectFizzBuzz() throws Exception
+	@Test
+	public void testReactionOnFifteenExpectFizzBuzz()
 	{
 		// arrange
 		number = 15;
 
 		// act
-		result = fizz.reactTo(number);
+		try
+		{
+			result = fizz.reactTo(number);
+		}
+		catch (Exception e)
+		{
+			result = e.getMessage();
+		}
 
 		// assert
+		assertEquals("FizzBuzz", result);
 	}
 
-	@Test (expected = BuzzException.class)
-	public void testReactionOnFiveExpectBuzz() throws Exception
+	@Test
+	public void testReactionOnFiveExpectBuzz()
 	{
 		// arrange
 		number = 5;
 
 		// act
-		result = fizz.reactTo(number);
+		try
+		{
+			result = fizz.reactTo(number);
+		}
+		catch (Exception e)
+		{
+			result = e.getMessage();
+		}
 
 		// assert
+		assertEquals("Buzz", result);
 	}
 
 
-	@Test (expected = FizzException.class)
-	public void testReactionOnThreeExpectFizz() throws Exception
+	@Test
+	public void testReactionOnThreeExpectFizz()
 	{
 		// arrange
 		number = 3;
 
 		// act
-		result = fizz.reactTo(number);
+		try
+		{
+			result = fizz.reactTo(number);
+		}
+		catch (Exception e)
+		{
+			result = e.getMessage();
+		}
 
 		// assert
+		assertEquals("Fizz", result);
 	}
 
 	@Test
