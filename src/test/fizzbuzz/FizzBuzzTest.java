@@ -1,5 +1,6 @@
 package fizzbuzz;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -10,14 +11,23 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class FizzBuzzTest
 {
+	private FizzBuzz fizz;
+	private long result;
+
+	@Before
+	public void before() {
+		fizz = new FizzBuzz();
+		result = -1L;
+	}
+
+
 	@Test
-	public void test(){
+	public void testReactionOnTwoExpectTwo(){
 		// arrange
-		FizzBuzz fizz = new FizzBuzz();
 		long number = 2;
 
 		// act
-		long result = fizz.reactTo(number);
+		result = fizz.reactTo(number);
 
 		// assert
 		assertEquals(result, number);
