@@ -22,6 +22,18 @@ public class FizzBuzzTest
 		number = -1L;
 	}
 
+	@Test (expected = FizzBuzzException.class)
+	public void testReactionOnFifteenExpectFizzBuzz() throws Exception
+	{
+		// arrange
+		number = 15;
+
+		// act
+		result = fizz.reactTo(number);
+
+		// assert
+	}
+
 	@Test (expected = BuzzException.class)
 	public void testReactionOnFiveExpectBuzz() throws Exception
 	{
@@ -32,7 +44,6 @@ public class FizzBuzzTest
 		result = fizz.reactTo(number);
 
 		// assert
-
 	}
 
 
@@ -46,7 +57,6 @@ public class FizzBuzzTest
 		result = fizz.reactTo(number);
 
 		// assert
-
 	}
 
 	@Test
