@@ -23,7 +23,8 @@ public class FizzBuzzTest
 	}
 
 	@Test (expected = FizzException.class)
-	public void testReactionOnThreeExpectFizz(){
+	public void testReactionOnThreeExpectFizz() throws Exception
+	{
 		// arrange
 		number = 3;
 
@@ -35,7 +36,8 @@ public class FizzBuzzTest
 	}
 
 	@Test
-	public void testReactionOnTwoExpectTwo(){
+	public void testReactionOnTwoExpectTwo() throws Exception
+	{
 		// arrange
 		number = 2;
 
