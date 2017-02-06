@@ -29,14 +29,7 @@ public class FizzBuzzTest
 		number = 15;
 
 		// act
-		try
-		{
 			result = fizz.reactTo(number);
-		}
-		catch (Exception e)
-		{
-			result = e.getMessage();
-		}
 
 		// assert
 		assertEquals("FizzBuzz", result);
@@ -49,14 +42,7 @@ public class FizzBuzzTest
 		number = 5;
 
 		// act
-		try
-		{
-			result = fizz.reactTo(number);
-		}
-		catch (Exception e)
-		{
-			result = e.getMessage();
-		}
+		result = fizz.reactTo(number);
 
 		// assert
 		assertEquals("Buzz", result);
@@ -70,14 +56,7 @@ public class FizzBuzzTest
 		number = 3;
 
 		// act
-		try
-		{
-			result = fizz.reactTo(number);
-		}
-		catch (Exception e)
-		{
-			result = e.getMessage();
-		}
+		result = fizz.reactTo(number);
 
 		// assert
 		assertEquals("Fizz", result);

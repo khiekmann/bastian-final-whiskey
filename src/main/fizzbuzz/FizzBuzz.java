@@ -6,12 +6,13 @@ package fizzbuzz;
 public class FizzBuzz
 {
 
-	public long reactTo(long number) throws Exception
+	public Object reactTo(long number)
 	{
-		if (moduloEqualsZero(3 * 5, number)) { throw new Exception("FizzBuzz");}
-		if (moduloEqualsZero(5, number)) {throw new Exception("Buzz");}
-		if (moduloEqualsZero(3, number)) { throw new Exception("Fizz");}
-		return number;
+		Object reaction = number;
+		if (moduloEqualsZero(3 * 5, number)) { reaction = "FizzBuzz";}
+		else if (moduloEqualsZero(5, number)) { reaction = "Buzz";}
+		else if (moduloEqualsZero(3, number)) { reaction = "Fizz";}
+		return reaction;
 	}
 
 	private boolean moduloEqualsZero(int modulant, long number)
