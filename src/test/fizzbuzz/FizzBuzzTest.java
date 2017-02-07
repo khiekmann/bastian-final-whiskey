@@ -21,6 +21,7 @@ public class FizzBuzzTest
 	@Before
 	public void before() {
 		fizz = new FizzBuzz();
+		fizz.init();
 		fizz.add(3, "Fizz");
 		fizz.add(5, "Buzz");
 		result = -1L;

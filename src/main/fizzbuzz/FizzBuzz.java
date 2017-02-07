@@ -11,6 +11,10 @@ public class FizzBuzz
 	private LinkedList<ModuloAndReactionPair> moduloAndReactionPairs;
 
 	public FizzBuzz() {
+		;
+	}
+
+	public void init() {
 		moduloAndReactionPairs = new LinkedList<>();
 	}
 
