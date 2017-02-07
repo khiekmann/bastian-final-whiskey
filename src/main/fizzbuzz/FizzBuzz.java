@@ -8,44 +8,41 @@ import java.util.LinkedList;
  */
 public class FizzBuzz
 {
-	private LinkedList<ModuloAndMessage> moduloAndMessagePairs;
+	private LinkedList<ModuloAndReactionPair> moduloAndReactionPairs;
 
 	public FizzBuzz() {
-		moduloAndMessagePairs = new LinkedList<>();
-		moduloAndMessagePairs.add(new ModuloAndMessage(3, "Fizz"));
-		moduloAndMessagePairs.add(new ModuloAndMessage(5, "Buzz"));
+		moduloAndReactionPairs = new LinkedList<>();
+	}
+
+	public boolean add(int modulo, String message) {
+		return moduloAndReactionPairs.add(new ModuloAndReactionPair(modulo, message));
 	}
 
 	public Object reactTo(long number)
 	{
-		Object reaction = updateReactionUsingModulos(number);
-		reaction = ifReactionIsNullSetTo(reaction, number);
-		return reaction;
+		return returnReactionOrReplacementIfEmpty(getReactionOrEmpty(number), number);
 	}
 
-	private Object ifReactionIsNullSetTo(Object reaction, long number)
+	private Object returnReactionOrReplacementIfEmpty(Object reaction, long replaceEmptyReaction)
 	{
-		if (reaction.equals("")) {
-			reaction = number;
-		}
-		return reaction;
+		return isReactionEmpty(reaction) ? replaceEmptyReaction : reaction;
 	}
 
-	private Object updateReactionUsingModulos(long number)
+	private boolean isReactionEmpty(Object reaction)
 	{
-//   	/*
-		Object reaction = "";
-//				/*
-		for (ModuloAndMessage pair : moduloAndMessagePairs) {
-			if(moduloEqualsZero(pair.getModulo(), number)) {reaction = reaction + pair.getMessage();}
-		}
-		//		*/
-/*
-		if (moduloEqualsZero(3 * 5, number)) { reaction = "FizzBuzz";}
-		else if (moduloEqualsZero(5, number)) { reaction = "Buzz";}
-		else if (moduloEqualsZero(3, number)) { reaction = "Fizz";}
-//		 */
-		return reaction;
+		return reaction.toString().isEmpty();
+	}
+
+	private Object getReactionOrEmpty(long number)
+	{
+		StringBuilder reactionBuilder = new StringBuilder();
+		for (ModuloAndReactionPair pair : moduloAndReactionPairs) { reactionBuilder.append(reactIfModuloEqualsZero(pair, number));}
+		return reactionBuilder.toString();
+	}
+
+	public Object reactIfModuloEqualsZero(ModuloAndReactionPair pair, long number)
+	{
+		return (moduloEqualsZero(pair.getModulo(), number)) ? pair.getMessage() : "";
 	}
 
 	private boolean moduloEqualsZero(int modulant, long number)

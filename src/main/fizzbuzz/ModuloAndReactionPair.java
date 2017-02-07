@@ -3,12 +3,12 @@ package fizzbuzz;
 /**
  * Created by HiekmaHe on 07.02.2017.
  */
-public class ModuloAndMessage
+public class ModuloAndReactionPair
 {
 	private int modulo;
 	private String message;
 
-	public ModuloAndMessage(int modulo, String message)
+	public ModuloAndReactionPair(int modulo, String message)
 	{
 		this.modulo = modulo;
 		this.message = message;
